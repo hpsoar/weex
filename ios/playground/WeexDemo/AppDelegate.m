@@ -21,6 +21,7 @@
 #import <WeexSDK/WXAppConfiguration.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ATSDK/ATManager.h>
+#import "MyNavigator.h"
 
 @interface AppDelegate ()
 @end
@@ -80,10 +81,12 @@
     [WXSDKEngine initSDKEnviroment];
     
     [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
-    [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];
+    [WXSDKEngine registerHandler:[WXEventModule new] withProtocol:@protocol(WXEventModuleProtocol)];    
     
     [WXSDKEngine registerComponent:@"select" withClass:NSClassFromString(@"WXSelectComponent")];
     [WXSDKEngine registerModule:@"event" withClass:[WXEventModule class]];
+    [WXSDKEngine registerModule:@"myNavigator" withClass:[MyNavigator class]];
+    
     [self atAddPlugin];
     
 #ifdef DEBUG

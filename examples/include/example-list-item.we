@@ -20,7 +20,13 @@
     },
     methods: {
       redirect: function() {
-        this.$openURL(this.url);
+        var event = require('@weex-module/event');
+        var xxx = require('@weex-module/myNavigator');
+        console.info('test');
+        xxx.openURL(this.url, function() {
+            console.info('hello, world');
+            });
+        event.openURL(this.url);
       }
     }
   }
